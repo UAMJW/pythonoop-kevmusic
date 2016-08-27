@@ -2,7 +2,7 @@
 <hr><hr>
 
 ##Creando una clase
-Se utiliza la palabra reservada _class_ seguido del nombre de la clase y dos puntos (_:_) seguido de las definiones de sus funciones
+Se utiliza la palabra reservada `class` seguido del nombre de la clase y `:` seguido de las definiones de sus funciones
 
 ```python
 class ATM:
@@ -44,7 +44,7 @@ Se le asigna el valor a la variable con en nombre de la clase seguido de abre y 
 `x = ATM()`
 
 ##Inicialización
-Existen ocasiones en las que las clases deben tener propiedades con valores por defecto. Esto se logra a través del constructor.
+Existen ocasiones en las que las clases deben tener propiedades con valores por defecto. Esto se logra a través del constructor `def __init__(self, arg1, argN):`.
 
 ```python
 class ATM:
@@ -55,7 +55,7 @@ class ATM:
 		self.fechaHoraActual = fHA
 	
 	def saludo(self):
-		return 'Buenos días. Ingrese su tarjeta por favor'
+		return 'Buenos dias. Ingrese su tarjeta por favor'
 		
 >>> x = ATM('Agosto 26 2016, 22:00')
 >>> x.fechaHoraActual
@@ -64,7 +64,27 @@ class ATM:
 ```
 
 #Ejemplo final ATM.py
+Código:
 
+```python
+import datetime
+
+# Obteniendo la hora actual
+now = datetime.datetime.now()
+
+class ATM:
+    noTransacciones = 0
+    fechaHoraActual = ''
+    
+    def __init__(self, fHA):
+        self.fechaHoraActual = fHA
+    
+    def saludo(self):
+        return 'Buenos dias. Ingrese su tarjeta por favor'
+        
+x = ATM(now.strftime("%Y-%m-%d %H:%M"))
+x.fechaHoraActual
+```
 ![alt text][logo]
 [logo]: Resources/ATMpy.png "ATM.py"
 
